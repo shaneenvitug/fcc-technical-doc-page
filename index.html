@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Technical Documentation Page</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav id="navbar">
+    <header>styled components Documentation</header>
+    <a class="nav-link" href="#Motivation">Motivation</a>
+    <a class="nav-link" href="#Installation">Installation</a>
+    <a class="nav-link" href="#Getting_Started">Getting Started</a>
+    <a class="nav-link" href="#Adapting_based_on_props">Adapting based on props</a>
+    <a class="nav-link" href="#Extending_styles">Extending styles</a>
+    <a href="#">Styling any component</a>
+    <a href="#">Passed props</a>
+    <a href="#">Coming from CSS</a>
+    <a href="#">Attaching additional props</a>
+    <a href="#">Animations</a>
+    <a href="#">React Native</a>
+  </nav>
+
+  <main id="main-doc">
+    <section class="main-section" id="Motivation">
+      <header>Motivation</header>
+      <p><em>styled-components is the result of wondering how we could enhance CSS for styling React component systems.</em> By focusing on a single use case we managed to optimize the experience for developers as well as the output for end users.</p>
+      <p>Apart from the improved experience for developers, styled-components provides:</p>
+      <ul>
+        <li><em>Automatic critical CSS</em>: styled-components keeps track of which components are rendered on a page and injects their styles and nothing else, fully automatically. Combined with code splitting, this means your users load the least amount of code necessary.</li>
+        <li><em>No class name bugs</em>: styled-components generates unique class names for your styles. You never have to worry about duplication, overlap or misspellings.</li>
+        <li><em>Easier deletion of CSS</em>: it can be hard to know whether a class name is used somewhere in your codebase. styled-components makes it obvious, as every bit of styling is tied to a specific component. If the component is unused (which tooling can detect) and gets deleted, all its styles get deleted with it.</li>
+        <li><em>Simple dynamic styling</em>: adapting the styling of a component based on its props or a global theme is simple and intuitive without having to manually manage dozens of classes.</li>
+        <li><em>Painless maintenance</em>: you never have to hunt across different files to find the styling affecting your component, so maintenance is a piece of cake no matter how big your codebase is.</li>
+        <li><em>Automatic vendor prefixing</em>: write your CSS to the current standard and let styled-components handle the rest.</li>
+      </ul>
+      <p>You get all of these benefits while still writing the CSS you know and love, just bound to individual components.</p>
+    </section>
+
+    <section class="main-section" id="Installation">
+      <header>Installation</header>
+      <p>Installing styled-components only takes a single command and you're ready to roll:</p>
+      <code>npm install --save styled-components</code>
+      <div class="note">
+        <h4>NOTE</h4>
+        <p>It's highly recommended (but not required) to also use the Babel plugin. It offers many benefits like more legible class names, server-side rendering compatibility, smaller bundles, and more.</p>
+      </div>
+      <button><p>▶ Click here to see alternative CDN installation instructions</p></button>
+      <div id="show-hide">
+        <p>If you're not using a module bundler or package manager we also have a global ("UMD") build hosted on the <u>unpkg</u> CDN. Simply add the following <code>&lt;script&gt;</code> tag to the bottom of your HTML file:</p>
+      </div>
+      <code>&lt;script src="https://unpkg.com/styled-components/dist/styled-components.min.js"&gt;&lt;/script&gt;</code>
+      <p>Once you've added <code>styled-components</code> you will have access to the global <code>window.styled</code> variable.</p>
+      <code>const Component = window.styled.div`<br>
+      &emsp;&emsp;color: red;<br>
+      `</code>
+      <div class="note">
+        <h4>NOTE</h4>
+        <p>This style of usage requires the <u>react CDN bundles</u> and the <u><code>react-is</code> CDN bundle</u> to be on the page as well (before the styled-components script.)</p>
+      </div>
+    </section>
+
+    <section class="main-section" id="Getting_Started">
+      <header>Getting Started</header>
+      <p><code>styled components</code> utilises tagged template literals to style your components.</p>
+      <p>It removes the mapping between components and styles. This means that when you're defining your styles, you're actually creating a normal React component, that has your styles attached to it.</p>
+      <p>This example creates two simple components, a wrapper and a title, with some styles attached to it:</p>
+      <div class="code-editor">
+        <code>
+          // Create a Title component that'll render an &lt;h1&gt; tag with some styles
+          const Title = styled.h1`
+            font-size: 1.5em;
+            text-align: center;
+            color: palevioletred;
+          `;
+          // Create a Wrapper component that'll render a &lt;section&gt; tag with some styles
+          const Wrapper = styled.section`
+            padding: 4em;
+            background: papayawhip;
+          `;
+          // Use Title and Wrapper like any other React component – except they're styled!
+          render(
+            &lt;Wrapper&gt;
+              &lt;Title&gt;
+                Hello World!
+              &lt;/Title&gt;
+            &lt;/Wrapper&gt;
+          );
+        </code>
+      </div>
+      <div>
+        <p>Hello World!</p>
+      </div>
+      <p>This is a live editor, so play around with the code to get a feel for what it's like to work with styled-components!</p>
+      <div class="note">
+        <h4>NOTE</h4>
+        <p>The CSS rules are automatically vendor prefixed, styled-components takes care of that for you!</p>
+      </div>
+    </section>
+
+    <section class="main-section" id="Adapting_based_on_props">
+      <header>Adapting based on props</header>
+      <p>You can pass a function ("interpolations") to a styled component's template literal to adapt it based on its props.</p>
+      <p>This button component has a primary state that changes its color. When setting the <code>primary</code> prop to true, we are swapping out its background and text color.</p>
+      <div class="code-editor">
+        <code>
+          const Button = styled.button`
+            /* Adapt the colors based on primary prop */
+            background: ${props => props.primary ? "palevioletred" : "white"};
+            color: ${props => props.primary ? "white" : "palevioletred"};
+            font-size: 1em;
+            margin: 1em;
+            padding: 0.25em 1em;
+            border: 2px solid palevioletred;
+            border-radius: 3px;
+          `;
+          render(
+            &lt;div&gt;
+              &lt;Button&gt;Normal&lt;/Button&gt;
+              &lt;Button primary&gt;Primary&lt;/Button&gt;
+            &lt;/div&gt;
+          );
+        </code>
+      </div>
+      <div>
+        <button>Normal</button>
+        <button>Primary</button>
+      </div>
+    </section>
+
+    <section class="main-section" id="Extending_styles">
+      <header>Extending styles</header>
+      <p>Quite frequently you might want to use a component, but change it slightly for a single case. Now, you could pass in an interpolated function and change them based on some props, but that's quite a lot of effort for overriding the styles once.</p>
+      <p>To easily make a new component that inherits the styling of another, just wrap it in the <code>styled()</code> constructor. Here we use the button from the last section and create a special one, extending it with some color-related styling:</p>
+      <div class="code-editor">
+        <code>
+          // The Button from the last section without the interpolations
+          const Button = styled.button`
+            color: palevioletred;
+            font-size: 1em;
+            margin: 1em;
+            padding: 0.25em 1em;
+            border: 2px solid palevioletred;
+            border-radius: 3px;
+          `;
+          // A new component based on Button, but with some override styles
+          const TomatoButton = styled(Button)`
+            color: tomato;
+            border-color: tomato;
+          `;
+          render(
+            &lt;div&gt;
+              &lt;Button&gt;Normal Button&lt;/Button&gt;
+              &lt;TomatoButton&gt;Tomato Button&lt;/TomatoButton&gt;
+            &lt;/div&gt;
+          );
+        </code>
+      </div>
+      <div>
+        <button>Normal Button</button>
+        <button>Tomato Button</button>
+      </div>
+      <p>We can see that the new <code>TomatoButton</code> still resembles <code>Button</code>, while we have only added two new rules.</p>
+      <p>In some cases you might want to change which tag or component a styled component renders. This is common when building a navigation bar for example, where there are a mix of anchor links and buttons but they should be styled identically.</p>
+      <p>For this situation, we have an escape hatch. You can use the <code>"as" polymorphic prop</code> to dynamically swap out the element that receives the styles you wrote:</p>
+      <div class="code-editor">
+        <code>
+          const Button = styled.button`
+          display: inline-block;
+          color: palevioletred;
+          font-size: 1em;
+          margin: 1em;
+          padding: 0.25em 1em;
+          border: 2px solid palevioletred;
+          border-radius: 3px;
+          display: block;
+        `;
+        const TomatoButton = styled(Button)`
+          color: tomato;
+          border-color: tomato;
+        `;
+        render(
+          &lt;div&gt;
+            &lt;Button&gt;Normal Button&lt;/Button&gt;
+            &lt;Button as="a" href="/"&gt;Link with Button styles&lt;/Button&gt;
+            &lt;TomatoButton as="a" href="/"&gt;Link with Tomato Button styles&lt;/TomatoButton&gt;
+          &lt;/div&gt;
+        );
+        </code>
+      </div>
+      <div>
+        <button>Normal Button</button>
+        <button>Link with Button styles</button>
+        <button>Link with Tomato Button styles</button>
+      </div>
+      <p>This works perfectly fine with custom components too!</p>
+      <div class="code-editor">
+        <code>
+          const Button = styled.button`
+          display: inline-block;
+          color: palevioletred;
+          font-size: 1em;
+          margin: 1em;
+          padding: 0.25em 1em;
+          border: 2px solid palevioletred;
+          border-radius: 3px;
+          display: block;
+        `;
+        const ReversedButton = props => &lt;Button {...props} children={props.children.split('').reverse()} /&gt;
+        render(
+          &lt;div&gt;
+            &lt;Button&gt;Normal Button&lt;/Button&gt;
+            &lt;Button as={ReversedButton}&gt;Custom Button with Normal Button styles&lt;/Button&gt;
+          &lt;/div&gt;
+        );
+        </code>
+      </div>
+      <div>
+        <button>Normal Button</button>
+        <button>selyts nottuB lamroN htiw nottuB motsuC</button>
+      </div>
+      <div class="note">
+        <h4>NOTE</h4>
+        <p>If you are still on an older version than v4, you can use the <code>.withComponent</code> or <code>.extend</code> API's to achieve the same result as with the <code>"as" prop</code>, but note that this is discouraged as with v4 <code>.extend</code> was removed and <code>.withComponent</code> was marked as a candidate for future deprecation.</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js" />
+</body>
+</html>
