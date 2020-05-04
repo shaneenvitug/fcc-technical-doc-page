@@ -25,15 +25,15 @@
   <main id="main-doc">
     <section class="main-section" id="Motivation">
       <header>Motivation</header>
-      <p><em>styled-components is the result of wondering how we could enhance CSS for styling React component systems.</em> By focusing on a single use case we managed to optimize the experience for developers as well as the output for end users.</p>
+      <p><strong>styled-components is the result of wondering how we could enhance CSS for styling React component systems.</strong> By focusing on a single use case we managed to optimize the experience for developers as well as the output for end users.</p>
       <p>Apart from the improved experience for developers, styled-components provides:</p>
       <ul>
-        <li><em>Automatic critical CSS</em>: styled-components keeps track of which components are rendered on a page and injects their styles and nothing else, fully automatically. Combined with code splitting, this means your users load the least amount of code necessary.</li>
-        <li><em>No class name bugs</em>: styled-components generates unique class names for your styles. You never have to worry about duplication, overlap or misspellings.</li>
-        <li><em>Easier deletion of CSS</em>: it can be hard to know whether a class name is used somewhere in your codebase. styled-components makes it obvious, as every bit of styling is tied to a specific component. If the component is unused (which tooling can detect) and gets deleted, all its styles get deleted with it.</li>
-        <li><em>Simple dynamic styling</em>: adapting the styling of a component based on its props or a global theme is simple and intuitive without having to manually manage dozens of classes.</li>
-        <li><em>Painless maintenance</em>: you never have to hunt across different files to find the styling affecting your component, so maintenance is a piece of cake no matter how big your codebase is.</li>
-        <li><em>Automatic vendor prefixing</em>: write your CSS to the current standard and let styled-components handle the rest.</li>
+        <li><strong>Automatic critical CSS</strong>: styled-components keeps track of which components are rendered on a page and injects their styles and nothing else, fully automatically. Combined with code splitting, this means your users load the least amount of code necessary.</li>
+        <li><strong>No class name bugs</strong>: styled-components generates unique class names for your styles. You never have to worry about duplication, overlap or misspellings.</li>
+        <li><strong>Easier deletion of CSS</strong>: it can be hard to know whether a class name is used somewhere in your codebase. styled-components makes it obvious, as every bit of styling is tied to a specific component. If the component is unused (which tooling can detect) and gets deleted, all its styles get deleted with it.</li>
+        <li><strong>Simple dynamic styling</strong>: adapting the styling of a component based on its props or a global theme is simple and intuitive without having to manually manage dozens of classes.</li>
+        <li><strong>Painless maintenance</strong>: you never have to hunt across different files to find the styling affecting your component, so maintenance is a piece of cake no matter how big your codebase is.</li>
+        <li><strong>Automatic vendor prefixing</strong>: write your CSS to the current standard and let styled-components handle the rest.</li>
       </ul>
       <p>You get all of these benefits while still writing the CSS you know and love, just bound to individual components.</p>
     </section>
@@ -41,23 +41,29 @@
     <section class="main-section" id="Installation">
       <header>Installation</header>
       <p>Installing styled-components only takes a single command and you're ready to roll:</p>
-      <code>npm install --save styled-components</code>
+      <div class="code">
+        <code>npm install <span class="orange">--</span>save styled<span class="orange">-</span>components</code>
+      </div>
       <div class="note">
         <h4>NOTE</h4>
-        <p>It's highly recommended (but not required) to also use the Babel plugin. It offers many benefits like more legible class names, server-side rendering compatibility, smaller bundles, and more.</p>
+        <p>It's highly recommended (but not required) to also use the <u id="babel">Babel plugin</u>. It offers many benefits like more legible class names, server-side rendering compatibility, smaller bundles, and more.</p>
       </div>
-      <button><p>▶ Click here to see alternative CDN installation instructions</p></button>
+      <button id="click" onclick="hideShowDiv()">▶ Click here to see alternative CDN installation instructions</button>
       <div id="show-hide">
         <p>If you're not using a module bundler or package manager we also have a global ("UMD") build hosted on the <u>unpkg</u> CDN. Simply add the following <code>&lt;script&gt;</code> tag to the bottom of your HTML file:</p>
-      </div>
-      <code>&lt;script src="https://unpkg.com/styled-components/dist/styled-components.min.js"&gt;&lt;/script&gt;</code>
-      <p>Once you've added <code>styled-components</code> you will have access to the global <code>window.styled</code> variable.</p>
-      <code>const Component = window.styled.div`<br>
-      &emsp;&emsp;color: red;<br>
-      `</code>
-      <div class="note">
-        <h4>NOTE</h4>
-        <p>This style of usage requires the <u>react CDN bundles</u> and the <u><code>react-is</code> CDN bundle</u> to be on the page as well (before the styled-components script.)</p>
+        <div class="code" id="pink">
+          <code>&lt;script <span class="green">src</span>="https://unpkg.com/styled-components/dist/styled-components.min.js"&gt;&lt;/script&gt;</code>
+        </div>
+        <p>Once you've added <code>styled-components</code> you will have access to the global <code>window.styled</code> variable.</p>
+        <div class="code">
+          <code><span class="pink">const</span> Component <span class="orange">= window</span>.styled.div<span class="orange">`</span><br>
+        &emsp;&emsp;color: red;<br>
+        <span class="orange">`</span></code>
+        </div>
+        <div class="note">
+          <h4>NOTE</h4>
+          <p>This style of usage requires the <u>react CDN bundles</u> and the <u><code>react-is</code> CDN bundle</u> to be on the page as well (before the styled-components script.)</p>
+        </div>
       </div>
     </section>
 
@@ -227,6 +233,7 @@
     </section>
   </main>
 
-  <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js" />
+  <!--<script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js" />-->
+  <script src="/main.js"></script>
 </body>
 </html>
