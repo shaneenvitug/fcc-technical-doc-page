@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;700&family=Open+Sans:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
 * {
   margin: 0;
@@ -209,6 +210,53 @@ u {
   margin-top: 3em;
 }
 
+footer {
+  width: 75%;
+  margin-left: auto;
+  text-align: right;
+  margin-bottom: 2em;
+  padding-right: 2em;
+  line-height: 2em;
+}
+
+#soc-container {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 2.3em;
+  max-width: 5em;
+  width: 100%;
+  margin-left: auto;
+  padding-right: 3em;
+}
+
+.social img {
+  max-width: 2em;
+  height: auto;
+  margin-right: 2.5em;
+}
+
+#info {
+  margin-top: 2em;
+  width: 25em;
+  margin-left: auto;
+}
+
+#info p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.65em;
+  /* line-height: 0.6em; */
+}
+
+#info a {
+  color: #c3c7cb;
+  text-decoration: underline;
+}
+
+#info a:hover {
+  cursor: pointer;
+  color: #656667;
+}
+
 @media (max-width: 520px) {
   #navbar {
     display: none;
@@ -223,13 +271,14 @@ u {
   .container {
     width: 100%;
     display: block;
-    margin-left: 3.5em;
+    /* margin-left: 3.5em; */
   }
 
   .code-editor,
   #hello,
   .button {
     width: 80%;
+    margin: auto;
   }
 
   #click {
@@ -238,5 +287,29 @@ u {
 
   #hello {
     margin-top: 1em;
+  }
+
+  #soc-container {
+    text-align: center;
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 2.3em;
+    padding-right: 0;
+  }
+
+  .social {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+
+  .social img {
+    margin-right: 0;
+  }
+
+  footer {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    padding-right: 0;
   }
 }
