@@ -1,3 +1,5 @@
+console.log('test');
+
 function hideShowDiv() {
   var x = document.getElementById("show-hide");
   if (x.style.display === "block") {

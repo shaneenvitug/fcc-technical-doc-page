@@ -8,7 +8,7 @@
 </head>
 <body>
   <nav id="navbar">
-    <header>styled components Documentation</header>
+    <header><strong>styled components Documentation</strong></header>
     <a class="nav-link" href="#Motivation">Motivation</a>
     <a class="nav-link" href="#Installation">Installation</a>
     <a class="nav-link" href="#Getting_Started">Getting Started</a>
@@ -46,11 +46,11 @@
       </div>
       <div class="note">
         <h4>NOTE</h4>
-        <p>It's highly recommended (but not required) to also use the <u id="babel">Babel plugin</u>. It offers many benefits like more legible class names, server-side rendering compatibility, smaller bundles, and more.</p>
+        <p>It's highly recommended (but not required) to also use the <u class="pink-underline">Babel plugin</u>. It offers many benefits like more legible class names, server-side rendering compatibility, smaller bundles, and more.</p>
       </div>
       <button id="click" onclick="hideShowDiv()">▶ Click here to see alternative CDN installation instructions</button>
       <div id="show-hide">
-        <p>If you're not using a module bundler or package manager we also have a global ("UMD") build hosted on the <u>unpkg</u> CDN. Simply add the following <code>&lt;script&gt;</code> tag to the bottom of your HTML file:</p>
+        <p class="top">If you're not using a module bundler or package manager we also have a global ("UMD") build hosted on the <u>unpkg</u> CDN. Simply add the following <code>&lt;script&gt;</code> tag to the bottom of your HTML file:</p>
         <div class="code" id="pink">
           <code>&lt;script <span class="green">src</span>="https://unpkg.com/styled-components/dist/styled-components.min.js"&gt;&lt;/script&gt;</code>
         </div>
@@ -72,34 +72,38 @@
       <p><code>styled components</code> utilises tagged template literals to style your components.</p>
       <p>It removes the mapping between components and styles. This means that when you're defining your styles, you're actually creating a normal React component, that has your styles attached to it.</p>
       <p>This example creates two simple components, a wrapper and a title, with some styles attached to it:</p>
-      <div class="code-editor">
-        <code>
-          // Create a Title component that'll render an &lt;h1&gt; tag with some styles
-          const Title = styled.h1`
-            font-size: 1.5em;
-            text-align: center;
-            color: palevioletred;
-          `;
-          // Create a Wrapper component that'll render a &lt;section&gt; tag with some styles
-          const Wrapper = styled.section`
-            padding: 4em;
-            background: papayawhip;
-          `;
-          // Use Title and Wrapper like any other React component – except they're styled!
-          render(
-            &lt;Wrapper&gt;
-              &lt;Title&gt;
-                Hello World!
-              &lt;/Title&gt;
-            &lt;/Wrapper&gt;
-          );
-        </code>
-      </div>
-      <div>
-        <p>Hello World!</p>
+      <div class="container">
+        <div class="code-editor">
+          <code>
+            <em>// Create a Title component that'll render an &lt;h1&gt; tag with some styles</em><br>
+            <span class="pink">const</span> <span class="white">Title</span> <span class="orange">=</span> <span class="white">styled.h1</span><span class="orange">`</span><br>
+            <span class="orange">&emsp;&emsp;font-size: 1.5em;</span><br>
+            <span class="orange">&emsp;&emsp;text-align: center;</span><br>
+            <span class="orange">&emsp;&emsp;color: palevioletred;</span><br>
+            <span class="orange">`</span><span class="white">;</span><br>
+            <br>
+            <em>// Create a Wrapper component that'll render a<br>&lt;section&gt; tag with some styles</em><br>
+            <span class="pink">const</span> <span class="white">Wrapper</span> <span class="orange">=</span> <span class="white">styled.section</span><span class="orange">`</span><br>
+            &emsp;&emsp;<span class="orange">padding: 4em;</span><br>
+            &emsp;&emsp;<span class="orange">background: papayawhip;</span><br>
+            `<span class="white">;</span><br>
+            <br>
+            <em>// Use Title and Wrapper like any other React<br>component – except they're styled!</em><br>
+            <span class="white">render(</span><br>
+              <span class="pink">&emsp;&emsp;&lt;Wrapper&gt;</span><br>
+                <span class="pink">&emsp;&emsp;&emsp;&emsp;&lt;Title&gt;</span><br>
+                  <span class="white">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Hello World</span><span class="orange">!</span><br>
+                <span class="pink">&emsp;&emsp;&emsp;&emsp;&lt;/Title&gt;</span><br>
+              <span class="pink">&emsp;&emsp;&lt;/Wrapper&gt;</span><br>
+            <span class="white">);</span>
+          </code>
+        </div>
+        <div id="hello">
+          <code>Hello World!</code>
+        </div>
       </div>
       <p>This is a live editor, so play around with the code to get a feel for what it's like to work with styled-components!</p>
-      <div class="note">
+      <div class="note top">
         <h4>NOTE</h4>
         <p>The CSS rules are automatically vendor prefixed, styled-components takes care of that for you!</p>
       </div>
@@ -109,29 +113,33 @@
       <header>Adapting based on props</header>
       <p>You can pass a function ("interpolations") to a styled component's template literal to adapt it based on its props.</p>
       <p>This button component has a primary state that changes its color. When setting the <code>primary</code> prop to true, we are swapping out its background and text color.</p>
-      <div class="code-editor">
-        <code>
-          const Button = styled.button`
-            /* Adapt the colors based on primary prop */
-            background: ${props => props.primary ? "palevioletred" : "white"};
-            color: ${props => props.primary ? "white" : "palevioletred"};
-            font-size: 1em;
-            margin: 1em;
-            padding: 0.25em 1em;
-            border: 2px solid palevioletred;
-            border-radius: 3px;
-          `;
-          render(
-            &lt;div&gt;
-              &lt;Button&gt;Normal&lt;/Button&gt;
-              &lt;Button primary&gt;Primary&lt;/Button&gt;
-            &lt;/div&gt;
-          );
-        </code>
-      </div>
-      <div>
-        <button>Normal</button>
-        <button>Primary</button>
+      <div class="container">
+        <div class="code-editor">
+          <code class="orange">
+            <span class="pink">const</span> <span class="white">Button</span> = <span class="white">styled.button</span>`<br>
+              &emsp;&emsp;/* Adapt the colors based on primary prop */<br>
+              &emsp;&emsp;background: <span class="white">${props</span> => <span class="white">props.primary</span> ?<br>"palevioletred" <span class="white">:</span> "white"<span class="white">}</span>;<br>
+              &emsp;&emsp;color: <span class="white">${props =></span> <span class="white">props.primary</span> ? "white" <span class="white">:</span><br>"palevioletred"<span class="white">}</span>;<br>
+              <br>
+              &emsp;&emsp;font-size: 1em;<br>
+              &emsp;&emsp;margin: 1em;<br>
+              &emsp;&emsp;padding: 0.25em 1em;<br>
+              &emsp;&emsp;border: 2px solid palevioletred;<br>
+              &emsp;&emsp;border-radius: 3px;<br>
+            `<span class="white">;</span><br>
+            <br>
+            <span class="white">render(</span><br>
+              &emsp;&emsp;<span class="pink">&lt;div&gt;</span><br>
+                &emsp;&emsp;&emsp;&emsp;<span class="pink">&lt;Button&gt;</span><span class="white">Normal</span><span class="pink">&lt;/Button&gt;</span><br>
+                &emsp;&emsp;&emsp;&emsp;<span class="pink">&lt;Button</span> <span class="green">primary</span><span class="pink">&gt;</span><span class="white">Primary</span><span class="pink">&lt;/Button&gt;</span><br>
+              &emsp;&emsp;<span class="pink">&lt;/div&gt;</span><br>
+            <span class="white">);</span>
+          </code>
+        </div>
+        <div class="button">
+          <button class="pink-button">Normal</button>
+          <button id="all-pink">Primary</button>
+        </div>
       </div>
     </section>
 
@@ -139,101 +147,113 @@
       <header>Extending styles</header>
       <p>Quite frequently you might want to use a component, but change it slightly for a single case. Now, you could pass in an interpolated function and change them based on some props, but that's quite a lot of effort for overriding the styles once.</p>
       <p>To easily make a new component that inherits the styling of another, just wrap it in the <code>styled()</code> constructor. Here we use the button from the last section and create a special one, extending it with some color-related styling:</p>
-      <div class="code-editor">
-        <code>
-          // The Button from the last section without the interpolations
-          const Button = styled.button`
-            color: palevioletred;
-            font-size: 1em;
-            margin: 1em;
-            padding: 0.25em 1em;
-            border: 2px solid palevioletred;
-            border-radius: 3px;
-          `;
-          // A new component based on Button, but with some override styles
-          const TomatoButton = styled(Button)`
-            color: tomato;
-            border-color: tomato;
-          `;
-          render(
-            &lt;div&gt;
-              &lt;Button&gt;Normal Button&lt;/Button&gt;
-              &lt;TomatoButton&gt;Tomato Button&lt;/TomatoButton&gt;
-            &lt;/div&gt;
-          );
-        </code>
-      </div>
-      <div>
-        <button>Normal Button</button>
-        <button>Tomato Button</button>
+      <div class="container">
+        <div class="code-editor">
+          <code>
+            // The Button from the last section without the<br>interpolations<br>
+            <span class="pink">const</span> <span class="white">Button</span> <span class="orange">=</span> <span class="white">styled.button</span><span class="orange">`</span><br>
+            <span class="orange">&emsp;&emsp;color: palevioletred;<br>
+            &emsp;&emsp;font-size: 1em;<br>
+            &emsp;&emsp;margin: 1em;<br>
+            &emsp;&emsp;padding: 0.25em 1em;<br>
+            &emsp;&emsp;border: 2px solid palevioletred;<br>
+            &emsp;&emsp;border-radius: 3px;<br>
+            `</span>;<br>
+            <br>
+            // A new component based on Button, but with some<br>override styles<br>
+            <span class="pink">const</span> <span class="white">TomatoButton</span> <span class="orange">=</span> <span class="white">styled(Button)</span><span class="orange">`</span><br>
+            <span class="orange">&emsp;&emsp;color: tomato;<br>
+            &emsp;&emsp;border-color: tomato;<br>
+            `<span class="white"></span>;</span><br>
+            <br>
+            <span class="white">render(</span><br>
+            <span class="pink">&emsp;&emsp;&lt;div&gt;</span><br>
+            <span class="pink">&emsp;&emsp;&emsp;&emsp;&lt;Button&gt;</span><span class="white">Normal Button</span><span class="pink">&lt;/Button&gt;</span><br>
+            <span class="pink">&emsp;&emsp;&emsp;&emsp;&lt;TomatoButton&gt;</span><span class="white">Tomato Button</span><span class="pink">&lt;/TomatoButton&gt;</span><br>
+            <span class="pink">&emsp;&emsp;&lt;/div&gt;</span><br>
+            <span class="white">);</span><br>
+          </code>
+        </div>
+        <div class="button">
+          <button class="pink-button">Normal Button</button>
+          <button class="orange-button">Tomato Button</button>
+        </div>
       </div>
       <p>We can see that the new <code>TomatoButton</code> still resembles <code>Button</code>, while we have only added two new rules.</p>
       <p>In some cases you might want to change which tag or component a styled component renders. This is common when building a navigation bar for example, where there are a mix of anchor links and buttons but they should be styled identically.</p>
-      <p>For this situation, we have an escape hatch. You can use the <code>"as" polymorphic prop</code> to dynamically swap out the element that receives the styles you wrote:</p>
-      <div class="code-editor">
-        <code>
-          const Button = styled.button`
-          display: inline-block;
-          color: palevioletred;
-          font-size: 1em;
-          margin: 1em;
-          padding: 0.25em 1em;
-          border: 2px solid palevioletred;
-          border-radius: 3px;
-          display: block;
-        `;
-        const TomatoButton = styled(Button)`
-          color: tomato;
-          border-color: tomato;
-        `;
-        render(
-          &lt;div&gt;
-            &lt;Button&gt;Normal Button&lt;/Button&gt;
-            &lt;Button as="a" href="/"&gt;Link with Button styles&lt;/Button&gt;
-            &lt;TomatoButton as="a" href="/"&gt;Link with Tomato Button styles&lt;/TomatoButton&gt;
-          &lt;/div&gt;
-        );
-        </code>
-      </div>
-      <div>
-        <button>Normal Button</button>
-        <button>Link with Button styles</button>
-        <button>Link with Tomato Button styles</button>
+      <p>For this situation, we have an escape hatch. You can use the <code><u class="pink-underline">"as" polymorphic prop</u></code> to dynamically swap out the element that receives the styles you wrote:</p>
+      <div class="container">
+        <div class="code-editor">
+          <code class="orange">
+            <span class="pink">const</span> <span class="white">Button</span> = <span class="white">styled.button</span>`<br>
+            &emsp;&emsp;display: inline-block;<br>
+            &emsp;&emsp;color: palevioletred;<br>
+            &emsp;&emsp;font-size: 1em;<br>
+            &emsp;&emsp;margin: 1em;<br>
+            &emsp;&emsp;padding: 0.25em 1em;<br>
+            &emsp;&emsp;border: 2px solid palevioletred;<br>
+            &emsp;&emsp;border-radius: 3px;<br>
+            &emsp;&emsp;display: block;<br>
+          `<span class="white">;</span><br>
+          <br>
+          <span class="pink">const</span> <span class="white">TomatoButton</span> = <span class="white">styled(Button)</span>`<br>
+          &emsp;&emsp;color: tomato;<br>
+          &emsp;&emsp;border-color: tomato;<br>
+          `<span class="white">;</span><br>
+          <br>
+          <span class="white">render(</span><br>
+          <span class="pink">&emsp;&emsp;&lt;div&gt;</span><br>
+          <span class="pink">&emsp;&emsp;&emsp;&emsp;&lt;Button&gt;</span><span class="white">Normal Button</span><span class="pink">&lt;/Button&gt;</span><br>
+          <span class="pink">&emsp;&emsp;&emsp;&emsp;&lt;Button</span> <span class="green">as</span><span class="pink">="a"</span> <span class="green">href</span><span class="pink">="/"&gt;</span><span class="white">Link</span> <span class="pink">with</span> <span class="white">Button<br>styles</span><span class="pink">&lt;/Button&gt;</span><br>
+          <span class="pink">&emsp;&emsp;&emsp;&emsp;&lt;TomatoButton</span> <span class="green">as</span><span class="pink">="a"</span> <span class="green">href</span><span class="pink">="/"&gt;</span><span class="white">Link</span> <span class="pink">with</span><br><span class="white">Tomato Button styles</span><span class="pink">&lt;/TomatoButton&gt;</span><br>
+          <span class="pink">&emsp;&emsp;&lt;/div&gt;</span><br>
+          <span class="white">);</span>
+          </code>
+        </div>
+        <div class="button">
+          <button class="pink-button">Normal Button</button>
+          <button class="pink-button monospace"><a>Link with Button styles</a></button>
+          <button class="orange-button monospace"><a>Link with Tomato Button styles</a></button>
+        </div>
       </div>
       <p>This works perfectly fine with custom components too!</p>
-      <div class="code-editor">
-        <code>
-          const Button = styled.button`
-          display: inline-block;
-          color: palevioletred;
-          font-size: 1em;
-          margin: 1em;
-          padding: 0.25em 1em;
-          border: 2px solid palevioletred;
-          border-radius: 3px;
-          display: block;
-        `;
-        const ReversedButton = props => &lt;Button {...props} children={props.children.split('').reverse()} /&gt;
-        render(
-          &lt;div&gt;
-            &lt;Button&gt;Normal Button&lt;/Button&gt;
-            &lt;Button as={ReversedButton}&gt;Custom Button with Normal Button styles&lt;/Button&gt;
-          &lt;/div&gt;
-        );
-        </code>
+      <div class="container">
+        <div class="code-editor">
+          <code class="orange">
+            <span class="pink">const</span> <span class="white">Button</span> = <span class="white">styled.button</span>`<br>
+            &emsp;&emsp;display: inline-block;<br>
+            &emsp;&emsp;color: palevioletred;<br>
+            &emsp;&emsp;font-size: 1em;<br>
+            &emsp;&emsp;margin: 1em;<br>
+            &emsp;&emsp;padding: 0.25em 1em;<br>
+            &emsp;&emsp;border: 2px solid palevioletred;<br>
+            &emsp;&emsp;border-radius: 3px;<br>
+            &emsp;&emsp;display: block;<br>
+            `<span class="white">;</span><br>
+            <br>
+            <span class="pink">const</span> <span class="white">ReversedButton</span> = <span class="white">props</span> => <span class="pink">&lt;Button<br>{...props}</span> <span class="green">children</span><span class="pink">=<br>{props.children.split('').reverse()} /&gt;</span><br>
+            <br>
+            <span class="white">render(</span><br>
+            <span class="pink">&emsp;&emsp;&lt;div&gt;</span><br>
+            <span class="pink">&emsp;&emsp;&emsp;&emsp;&lt;Button&gt;</span><span class="white">Normal Button</span><span class="pink">&lt;/Button&gt;</span><br>
+            <span class="pink">&emsp;&emsp;&emsp;&emsp;&lt;Button</span> <span class="green">as</span><span class="pink">={ReversedButton}&gt;</span><span class="white">Custom Button</span><br><span class="pink">with</span> <span class="white">Normal Button styles</span><span class="pink">&lt;/Button&gt;</span><br>
+            <span class="pink">&emsp;&emsp;&lt;/div&gt;</span><br>
+            <span class="white">);</span>
+          </code>
+        </div>
+        <div class="button">
+          <button class="pink-button" id="space">Normal Button</button>
+          <button class="pink-button">selyts nottuB lamroN htiw nottuB motsuC</button>
+        </div>
       </div>
-      <div>
-        <button>Normal Button</button>
-        <button>selyts nottuB lamroN htiw nottuB motsuC</button>
-      </div>
-      <div class="note">
+      <div class="note top">
         <h4>NOTE</h4>
-        <p>If you are still on an older version than v4, you can use the <code>.withComponent</code> or <code>.extend</code> API's to achieve the same result as with the <code>"as" prop</code>, but note that this is discouraged as with v4 <code>.extend</code> was removed and <code>.withComponent</code> was marked as a candidate for future deprecation.</p>
+        <p>If you are still on an older version than v4, you can use the <code><u class="pink-underline">.withComponent</u></code> or <code><u class="pink-underline">.extend</u></code> API's to achieve the same result as with the <code><u class="pink-underline">"as" prop</u></code>, but note that this is discouraged as with v4 <code><u class="pink-underline">.extend</code> was removed</u> and <code>.withComponent</code> was marked as a candidate for future deprecation.</p>
       </div>
     </section>
   </main>
 
-  <!--<script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js" />-->
   <script src="/main.js"></script>
+  <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js" />
 </body>
 </html>
